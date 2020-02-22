@@ -1,0 +1,26 @@
+@model Hobby
+
+<div class="row">
+    <h3 class="col-8 text-white">Edit Hobby</h3>
+    <a class="col-2" href="/hobby">Dashboard</a>
+    <a class="col-2" href="/">Logout</a>
+</div>
+
+<form class="text-white" asp-action="Update" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input class="form-control" type="text" asp-for = "Name" value="@Model.Name">
+    </div>
+    <span class="text-info" asp-validation-for="Name"></span>
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <textarea class="form-control" asp-for="Description" value="@Model.Description"></textarea>
+    </div>
+    <span class="text-info" asp-validation-for="Description"></span>
+    <input asp-for="HobbyId" type="hidden" value = "@Model.HobbyId">
+    <input asp-for = "CreatedAt" type="hidden" value = "@Model.CreatedAt">
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning">Update</button>
+    </div>
+</form>

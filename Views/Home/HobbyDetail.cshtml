@@ -1,0 +1,40 @@
+@model Hobby
+
+<div class="row mb-2">
+    <a class="col-10 text-right" href="/hobby">Dashboard</a>
+    <a class="col-2 text-right" href="/">Logout</a>
+    <h1 class="col-12 text-white">@Model.Name</h1>
+</div>
+
+<div class="row mb-5 text-white">
+    <h4 class="col-2 mr-2">Description:</h4>
+    <p class="col-9">@Model.Description</p>
+</div>
+
+<div class="row d-flex justify-content-end mb-2">
+    @{
+        @if(@Model.CreatedById == @ViewBag.UserId)
+        {
+            <a class="col-3 btn btn-warning" href="/hobby/edit/@Model.HobbyId">Edit Hobby</a>
+        }
+    }
+</div>
+
+<div class="row mb-2 d-flex justify-content-between">
+    <div class="col-4">
+        <h4 class="text-white"> @Model.Name Enthusiasts</h4>
+        <div class="border border-info bg-light text-dark">
+            @{
+                foreach(Enthusiast user in Model.Users)
+                {
+                    <p class="lead">@user.User.FName @user.User.LName</p>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-4">
+        <h4 class="text-white">Become an Enthusiast!</h4>
+        <a class="btn btn-info text-center" href="/myhobbies/@Model.HobbyId">Add to Hobbies</a>
+        <h4 class="text-danger">@ViewBag.Message</h4>
+    </div>
+</div>

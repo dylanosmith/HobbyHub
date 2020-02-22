@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model LoginViewModel
+
+<div class="text-center">
+    <h1 class="display-4 text-white">Welcome to the Hobby Hub. </h1>
+</div>
+
+<div class="row justify-content-between">
+    <div class="col-6 regForm">
+        <h3 class="text-center text-white">Register</h3>
+        <form class="text-white" asp-controller = "Home" asp-action="Register" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NewReg.FName">First Name</label>
+                    <input type="text" class="form-control" asp-for="NewReg.FName" placeholder="John">
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="NewReg.LName">Last Name</label>
+                    <input type="text" class="form-control" asp-for="NewReg.LName" placeholder="Smith">
+                </div>
+            </div>
+            <span class="text-info" asp-validation-for="NewReg.FName"></span>
+            <span class="text-info" asp-validation-for="NewReg.LName"></span>
+            <div class="form-group">
+                <label asp-for="NewReg.Username">Username</label>
+                <input type="text" class="form-control" asp-for="NewReg.Username" placeholder="Needs to be between 3 and 15 characters">
+            </div>
+            <span class="text-info" asp-validation-for="NewReg.Username"></span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NewReg.Password">Password</label>
+                    <input type="password" class="form-control" asp-for="NewReg.Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="NewReg.Confirm">Confirm Password</label>
+                    <input type="password" class="form-control" asp-for="NewReg.Confirm">
+                </div>
+            </div>
+            <span class="text-info" asp-validation-for="NewReg.Password"></span>
+            <span class="text-info" asp-validation-for="NewReg.Confirm"></span>
+            <div class="form-group text-center">
+                <button class="btn btn-primary type="submit">Sign Up</button>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="col-4 logForm">
+        <h3 class="text-center text-white">Login</h3>
+        <form class="text-white" asp-controller ="Home" asp-action="Login" method="post">
+            <div class="form-group">
+                <label asp-for="LogEm.Username">Username</label>
+                <input type="text" class="form-control" id="Username" asp-for="LogEm.Username">
+            </div>
+            <span class="text-info" asp-validation-for="LogEm.Username"></span>
+            <div class="form-group">
+                <label asp-for="LogEm.Password">Password</label>
+                <input type="password" class="form-control" id="Password" asp-for="LogEm.Password">
+            </div>
+            <span class="text-info" asp-validation-for="LogEm.Password"></span>
+            <div class="form-group text-center">
+                <button class="btn btn-primary type="submit">Login</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

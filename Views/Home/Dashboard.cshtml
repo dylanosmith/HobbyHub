@@ -1,0 +1,36 @@
+
+@model List<Hobby>
+
+<div class="row">
+    <a class="col-12 text-right" href="/">Logout</a>
+    <h1 class="col-12 text-white font-weight-bold text-center">Select Your Favorite Hobby & Become an Enthusiast!</h1>
+</div>
+<div class="row mb-2">
+    <div class="col-12 text-right">
+        <a href="/hobby/new" class="btn btn-primary">Create a Hobby</a>
+    </div>
+</div>
+<div class="row col-10 mx-auto rounded p-2 mb-3">
+    <table class="table table-hover bg-light col-10 mx-auto text-center">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Enthusiasts</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(Hobby hobby in Model)
+                {
+                <tr>
+                    <td><a href ="/hobby/@hobby.HobbyId">@hobby.Name</a></td>
+                    <td>@hobby.Description</td>
+                    <td>@hobby.Users.Count</td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,24 @@
+@model Hobby
+
+<div class="row">
+    <h3 class="col-8 text-white">Add a New Hobby</h3>
+    <a class="col-2" href="/hobby">Dashboard</a>
+    <a class="col-2" href="/">Logout</a>
+</div>
+
+<form class="text-white" asp-action="AddHobby" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input class="form-control" type="text" asp-for = "Name">
+    </div>
+    <span class="text-info" asp-validation-for="Name"></span>
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <textarea class="form-control" asp-for="Description" ></textarea>
+    </div>
+    <span class="text-info" asp-validation-for="Description"></span>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning">Create</button>
+    </div>
+</form>
